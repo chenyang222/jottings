@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>mouseenter图片预加载</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+				color: #000000;
+				padding: 20px;
+				display: inline-block;
+			}
+			.pic_box .active{
+				display: block;
+			}
+			.pic_box div{
+				display: none;
+			}
+			.pic_box div img{
+				width: 300px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="tab"  class="tab">
+			<a href="javascript:;">pic_first</a>
+			<a href="javascript:;">pic_second</a>
+			<a href="javascript:;">pic_third</a>			
+		</div>
+	
+		<div id="pic_box" class="pic_box">
+			<div class="active">
+				<img src="img/img_01.jpg" alt="">
+			</div>
+			<div>
+				<img data-src="img/img_02.jpg" alt="">
+			</div>
+			<div>
+				<img data-src="img/img_03.jpg" alt="">
+			</div>
+		</div>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var elAs = $('#tab a');
+			var divS = $('#pic_box div');
+			
+			elAs.each(function(index){
+				//存index
+				$(this).data('index', index);
+				
+				$(this).click(function(){
+					
+					divS.eq(index).addClass('active').siblings('div').removeClass('active');
+					
+				})
+			})
+			
+			//鼠标移入，预加载图片
+			
+			var imgS = $('#pic_box div img');
+			
+			elAs.mouseenter(function(){
+				
+				var imgUrl;
+				
+				if(!this.preloaded){
+					
+					var imgUrl = imgS.eq($(this).data('index'));
+					
+					imgUrl.attr('src',imgUrl.attr('data-src')).removeAttr('data-src');
+					
+					//标记已加载
+					
+					this.preloaded = true;
+				}
+			})
+		</script>
+	</body>
+</html>
