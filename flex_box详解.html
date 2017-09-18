@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性盒模型</title>
+		 <style>
+		 	*{
+		 		margin: 0;
+		 		padding: 0;
+		 		font-size: 14px;
+		 	}
+		 	h1{
+		 		font-size: 20px;
+		 		line-height: 70px;
+		 	}
+		 	h2{
+		 		font-size: 16px;
+		 		line-height: 30px;
+		 		font-weight: normal;
+		 	}
+		 	h3{
+		 		line-height: 50px;
+		 	}
+		 	h4{
+		 		line-height: 40px;
+		 	}
+		 	p{
+		 		text-indent: 2em;
+		 	}
+		 	ul{
+		 		padding-left: 4em;
+		 	}
+		 	input{
+		 		margin: 10px;
+		 		
+		 	}
+			header{
+				font-size: 30px;
+				text-align: center;
+			}		 	
+		 	.pre{
+	 		    margin: 15px 0;
+			    font: 100 12px/18px monaco, andale mono, courier new;
+			    padding: 10px 12px;
+			    border: #ccc 1px solid;
+			    border-left-width: 4px;
+			    background-color: #fefefe;
+			    box-shadow: 0 0 4px #eee;
+			    color: #444;
+		 	}
+		 	.fb{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;		 
+				display: flex;		
+		 		margin-top: 30px;
+				margin-bottom: 30px;			
+		 	}
+		 	.fb div{
+				width: 50px;
+				height: 50px;
+				color: #ffffff;		 
+		 	}
+		 	.fb div:nth-child(1){
+				background-color: royalblue;
+			}
+			.fb div:nth-child(2){
+				background-color: blue;
+			}		
+			.fb div:nth-child(3){
+				background-color: red;
+			}
+			.fb div:nth-child(4){
+				background-color: green;
+			}
+			.fb div:nth-child(5){
+				background-color: purple;
+			}	
+			.fb div:nth-child(6){
+				background-color: black;
+			}									
+		 </style>
+		 <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding: 50px;">
+		<header>弹性盒模型</header>
+		<h1>基础知识</h1>
+		<p>弹性布局（flexible box）模块旨在提供一个更加有效的方式来布置，对齐和分布在容器之间的各项内容，即使它们的大小是未知或者动态变化的。</p>
+		<p>弹性布局的主要思想是让容器有能力来改变项目的宽度和高度，以填满可用空间（主要是为了容纳所有类型的显示设备和屏幕尺寸）的能力。</p>
+		<p>注意： Flexbox布局是最合适的一个应用程序的组件，以及小规模的布局，而网格布局是用于较大规模的布局。</p>
+		<h1>属性介绍</h1>
+		<h2>display: flex | inline-flex; (适用于父类容器元素上)</h2>
+		<p>定义一个flex容器，内联或者根据指定的值，来作用于下面的子类容器。</p>
+		<ul>
+			<li>flex：将对象作为弹性伸缩盒显示。（伸缩盒最新版本）（CSS3）</li>
+			<li>inline-flex：将对象作为内联块级弹性伸缩盒显示。（伸缩盒最新版本）（CSS3）</li>
+		</ul>
+		<h2>请注意</h2>
+		<p>1.css 列（CSS columns）在弹性盒子中不起作用</p>
+		<p>2.float, clear and vertical-align 在flex项目中不起作用</p>
+		
+		
+		<h3>flex-direction(作用于父类容器的元素上)</h3>
+		<p>定义：设置或检索伸缩盒对象的子元素在父容器中的位置。</p>
+		<p class="pre">flex-direction: row | row-reverse | column | column-reverse</p>
+		<ul>
+			<li>row：横向从左到右排列（左对齐），默认的排列方式。</li>
+			<li>row-reverse：反转横向排列（右对齐，从后往前排，最后一项排在最前面。</li>
+			<li>column：纵向排列。</li>
+			<li>column-reverse：反转纵向排列，从后往前排，最后一项排在最上面。</li>
+		</ul>
+		<p>flex生效需定义其父元素display为flex或inline-flex</p>
+		<h5>flex-direction</h5>
+		<form id="flex-direction_01">
+			<input type="radio" name="flex-direction" id="flex-direction" value="row" checked="checked"/>row(默认)
+			<input type="radio" name="flex-direction" id="flex-direction" value="row-reverse" />row-reverse
+			<input type="radio" name="flex-direction" id="flex-direction" value="column" />column
+			<input type="radio" name="flex-direction" id="flex-direction" value="column-reverse" />column-reverse
+		</form>
+		
+		<div class="demo_01 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+		</div>
+		<style type="text/css">
+			.demo_01{
+				flex-direction: row;
+			}						
+		</style>
+		
+		
+		<h3>flex-wrap (适用于父类容器上)</h3>
+		<p>设置或检索伸缩盒对象的子元素超出父容器时是否换行。</p>
+		<p class="pre">flex-wrap: nowrap | wrap | wrap-reverse</p>
+		<ul>
+			<li>nowrap：当子元素溢出父容器时不换行。</li>
+			<li>wrap：当子元素溢出父容器时自动换行。</li>
+			<li>wrap-reverse：反转 wrap 排列。</li>
+		</ul>
+		<h5>flex-direction</h5>
+		<form id="flex-direction_02">
+			<input type="radio" name="flex-direction2" id="flex-direction2" value="row" checked="checked"/>row(默认)
+			<input type="radio" name="flex-direction2" id="flex-direction2" value="row-reverse" />row-reverse
+			<input type="radio" name="flex-direction2" id="flex-direction2" value="column" />column
+			<input type="radio" name="flex-direction2" id="flex-direction2" value="column-reverse" />column-reverse
+		</form>
+		<h5>flex-wrap</h5>
+		<form id="flex-wrap_01">
+			<input type="radio" name="flex-wrap" id="flex-wrap" value="nowrap" checked="checked"/>nowrap(默认)
+			<input type="radio" name="flex-wrap" id="flex-wrap" value="wrap" />wrap
+			<input type="radio" name="flex-wrap" id="flex-wrap" value="wrap-reverse" />wrap-reverse
+		</form>
+		<div class="demo_02 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+		</div>
+		<style type="text/css">
+			.demo_02{
+				flex-direction: row;
+				flex-wrap: nowrap;
+			}						
+		</style>
+		
+		
+		<h5>flex-flow (适用于父类容器上)</h5>
+		<p>复合属性。设置或检索伸缩盒对象的子元素排列方式。</p>
+		<p class="pre">flex-flow: flex-direction || flex-wrap </p>
+		<ul>
+			<li>[ flex-direction ]：定义弹性盒子元素的排列方向。</li>
+			<li>[ flex-wrap ]：定义弹性盒子元素溢出父容器时是否换行。</li>
+		</ul>
+		<h5>flex-wrap</h5>
+		<form id="flex-flow">
+			<input type="radio" name="flex-flow" id="flex-flow" value="row nowrap" checked="checked"/>row nowrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="row wrap" />row wrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="row wrap-reverse" />row wrap-reverse
+			<input type="radio" name="flex-flow" id="flex-flow" value="row-reverse nowrap" />row-reverse nowrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="row-reverse wrap" />row-reverse wrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="row-reverse wrap-reverse" />row-reverse wrap-reverse
+			<input type="radio" name="flex-flow" id="flex-flow" value="column nowrap" />columne nowrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="column wrap" />column wrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="column wrap-reverse" />column wrap-reverse
+			<input type="radio" name="flex-flow" id="flex-flow" value="column-reverse nowrap" />column-reverse nowrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="column-reverse wrap" />column-reverse wrap
+			<input type="radio" name="flex-flow" id="flex-flow" value="column-reverse wrap-reverse" />column-reverse wrap-reverse			
+		</form>
+		<div class="demo_03 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+		</div>		
+		<style type="text/css">
+			.demo_03{
+				flex-wrap: row nowrap;
+			}						
+		</style>		
+		
+		<h5>justify-content (适用于父类容器上)</h5>
+		<p>设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。</p>
+		<p>当弹性盒里一行上的所有子元素都不能伸缩或已经达到其最大值时，这一属性可协助对多余的空间进行分配。当元素溢出某行时，这一属性同样会在对齐上进行控制。</p>
+		<p class="pre">justify-content: flex-start | flex-end | center | space-between | space-around</p>
+		<ul>
+			<li>flex-start：弹性盒子元素将向行起始位置对齐。该行的第一个子元素的主起始位置的边界将与该行的主起始位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。</li>
+			<li>flex-end：弹性盒子元素将向行结束位置对齐。该行的第一个子元素的主结束位置的边界将与该行的主结束位置的边界对齐，同时所有后续的伸缩盒项目与其前一个项目对齐。</li>
+			<li>center：弹性盒子元素将向行中间位置对齐。该行的子元素将相互对齐并在行中居中对齐，同时第一个元素与行的主起始位置的边距等同与最后一个元素与行的主结束位置的边距（如果剩余空间是负数，则保持两端相等长度的溢出）。</li>
+			<li>space-between：弹性盒子元素会平均地分布在行里。如果最左边的剩余空间是负数，或该行只有一个子元素，则该值等效于'flex-start'。在其它情况下，第一个元素的边界与行的主起始位置的边界对齐，同时最后一个元素的边界与行的主结束位置的边距对齐，而剩余的伸缩盒项目则平均分布，并确保两两之间的空白空间相等。</li>
+			<li>space-around：弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。</li>
+		</ul>
+		<h5>justify-content</h5>
+		<form id="justify-content">
+			<input type="radio" name="justify-content" id="justify-content" value="flex-start" checked="checked"/>flex-start
+			<input type="radio" name="justify-content" id="justify-content" value="flex-end" />flex-end
+			<input type="radio" name="justify-content" id="justify-content" value="center" />center
+			<input type="radio" name="justify-content" id="justify-content" value="space-between" />space-between
+			<input type="radio" name="justify-content" id="justify-content" value="space-around" />space-around
+		</form>
+		<div class="demo_04 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+			<div>内容6</div>	
+		</div>		
+		<style type="text/css">
+			.demo_04{
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}						
+		</style>				
+		
+		<h5>align-items (适用于父类容器上)</h5>
+		<p>设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。</p>
+		<p class="pre">align-items: flex-start | flex-end | center | baseline | stretch</p>
+		<ul>
+			<li>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴（纵轴）起始边界。</li>
+			<li>flex-end：弹性盒子元素的侧轴（纵轴）结束位置的边界紧靠住父容器的侧轴结束边界。</li>
+			<li>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。</li>
+			<li>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。</li>
+			<li>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。</li>
+		</ul>
+		<h5>align-items</h5>
+		<form id="align-items">
+			<input type="radio" name="align-items" id="align-items" value="flex-start" checked="checked"/>flex-start
+			<input type="radio" name="align-items" id="align-items" value="flex-end" />flex-end
+			<input type="radio" name="align-items" id="align-items" value="center" />center
+			<input type="radio" name="align-items" id="align-items" value="baseline" />baseline
+			<input type="radio" name="align-items" id="align-items" value="stretch" />stretch
+		</form>
+		<div class="demo_05 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+			<div>内容6</div>	
+		</div>		
+		<style type="text/css">
+			.demo_05{
+				flex-wrap: wrap;
+				align-items: flex-start;
+			}
+			.demo_05 div:nth-child(1){
+				height: 10px;
+			}
+			.demo_05 div:nth-child(2){
+				height: 20px;
+			}		
+			.demo_05 div:nth-child(3){
+				height: 30px;
+			}
+			.demo_05 div:nth-child(4){
+				height: 40px;
+			}
+			.demo_05 div:nth-child(5){
+			}	
+			.demo_05 div:nth-child(6){
+			}							
+		</style>			
+		
+		
+		<h5>align-content (适用于父类容器上)</h5>
+		<p>设置或检索弹性盒堆叠伸缩行的对齐方式。</p>
+		<p class="pre">align-content: flex-start | flex-end | center | space-between | space-around | stretch</p>
+		<ul>
+			<li>flex-start：各行向弹性盒容器的起始位置堆叠。弹性盒容器中第一行的侧轴起始边界紧靠住该弹性盒容器的侧轴起始边界，之后的每一行都紧靠住前面一行。</li>
+			<li>flex-end：各行向弹性盒容器的结束位置堆叠。弹性盒容器中最后一行的侧轴起结束界紧靠住该弹性盒容器的侧轴结束边界，之后的每一行都紧靠住前面一行。</li>
+			<li>center：各行向弹性盒容器的中间位置堆叠。各行两两紧靠住同时在弹性盒容器中居中对齐，保持弹性盒容器的侧轴起始内容边界和第一行之间的距离与该容器的侧轴结束内容边界与第最后一行之间的距离相等。（如果剩下的空间是负数，则各行会向两个方向溢出的相等距离。）</li>
+			<li>space-between：各行在弹性盒容器中平均分布。如果剩余的空间是负数或弹性盒容器中只有一行，该值等效于'flex-start'。在其它情况下，第一行的侧轴起始边界紧靠住弹性盒容器的侧轴起始内容边界，最后一行的侧轴结束边界紧靠住弹性盒容器的侧轴结束内容边界，剩余的行则按一定方式在弹性盒窗口中排列，以保持两两之间的空间相等。</li>
+			<li>space-around：各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。如果剩余的空间是负数或弹性盒容器中只有一行，该值等效于'center'。在其它情况下，各行会按一定方式在弹性盒容器中排列，以保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半。</li>
+			<li>stretch：各行将会伸展以占用剩余的空间。如果剩余的空间是负数，该值等效于'flex-start'。在其它情况下，剩余空间被所有行平分，以扩大它们的侧轴尺寸。</li>
+		</ul>
+		<h5>align-content</h5>
+		<form id="align-content">
+			<input type="radio" name="align-content" id="align-content" value="flex-start" checked="checked"/>flex-start
+			<input type="radio" name="align-content" id="align-content" value="flex-end" />flex-end
+			<input type="radio" name="align-content" id="align-content" value="center" />center
+			<input type="radio" name="align-content" id="align-content" value="space-between" />space-between
+			<input type="radio" name="align-content" id="align-content" value="space-around" />space-around
+			<input type="radio" name="align-content" id="align-content" value="stretch" />stretch
+		</form>
+		<div class="demo_06 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+			<div>内容6</div>	
+		</div>		
+		<style type="text/css">
+			.demo_06{
+				flex-wrap: wrap;
+				align-items: flex-start;
+			}
+		</style>			
+		
+		
+		<h5>order (适用于弹性盒模型容器子元素)</h5>
+		<p class="pre">order: &ltinteger&gt</p>
+		<ul>
+			<li><integer>：用整数值来定义排列顺序，数值小的排在前面。可以为负值。</li>	
+		</ul>
+		<div class="demo_07 fb">
+			<div>内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+			<div>内容4</div>
+			<div>内容5</div>			
+			<div>内容6</div>	
+		</div>		
+		<style type="text/css">
+			.demo_07{
+				flex-wrap: wrap;
+				align-items: flex-start;
+			}
+			.demo_07 div:nth-child(1){
+				order: 4;
+			}
+			.demo_07 div:nth-child(2){
+				order: -1;
+			}		
+			.demo_07 div:nth-child(3){
+				order: 3;
+			}
+			.demo_07 div:nth-child(4){
+			}
+			.demo_07 div:nth-child(5){
+			}	
+			.demo_07 div:nth-child(6){
+			}			
+		</style>	
+		
+		<h5>flex-grow (适用于弹性盒模型容器子元素)</h5>
+		<p>设置或检索弹性盒的扩展比率。</p>
+		<p>根据弹性盒子元素所设置的扩展因子作为比率来分配剩余空间。</p>
+		<p class="pre">flex-grow: &ltnumber&gt (default 0)</p>
+		<ul>
+			<li>&ltnumber&gt：用数值来定义扩展比率。不允许负值</li>
+			<li>flex-grow的默认值为0，如果没有显示定义该属性，是不会拥有分配剩余空间权利的。本例中b,c两项都显式的定义了flex-grow，可以看到总共将剩余空间分成了4份，其中b占1份，c占3分，即1:3</li>
+		</ul>
+		
+		
+		<h5>flex-shrink (适用于弹性盒模型容器子元素)</h5>
+		<p>设置或检索弹性盒的收缩比率（根据弹性盒子元素所设置的收缩因子作为比率来收缩空间。）</p>
+		<p class="pre">flex-shrink: &ltnumber&gt (default 1)</p>
+		<p>说明:</p>
+		<ul>
+			<li>flex-shrink的默认值为1，如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。</li>
+			<li>本例中c显式的定义了flex-shrink，a,b没有显式定义，但将根据默认值1来计算，可以看到总共将剩余空间分成了5份，其中a占1份，b占1份，c占3分，即1:1:3</li>
+			<li>我们可以看到父容器定义为400px，子项被定义为200px，相加之后即为600px，超出父容器200px。那么这么超出的200px需要被a,b,c消化</li>
+			<li>按照以上定义a,b,c将按照1:1:3来分配200px，计算后即可得40px,40px,120px，换句话说，a,b,c各需要消化40px,40px,120px，那么就需要用原定义的宽度相减这个值，最后得出a为160px，b为160px，c为80px</li>
+		</ul>
+		
+		<h5>flex-basis (适用于弹性盒模型容器子元素)</h5>
+		<p>设置或检索弹性盒伸缩基准值。</p>
+		<p class="pre">flex-basis: &ltlength&gt | auto (default auto)</p>
+		<ul>
+			<li>auto：无特定宽度值，取决于其它属性值</li>
+			<li>&ltlength&gt：用长度值来定义宽度。不允许负值</li>
+			<li>&ltpercentage&gt：用百分比来定义宽度。不允许负值</li>
+		</ul>
+		
+		<h5>flex (适用于弹性盒模型子元素)</h5>
+		<p>复合属性。设置或检索伸缩盒对象的子元素如何分配空间。</p>
+		<p>如果缩写flex:1, 则其计算值为：1 1 0</p>
+		<p class="pre">flex：none | [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]</p>
+		<ul>
+			<li>none：none关键字的计算值为: 0 0 auto</li>
+			<li>[ flex-grow ]：定义弹性盒子元素的扩展比率。</li>
+			<li>[ flex-shrink ]：定义弹性盒子元素的收缩比率。</li>
+			<li>[ flex-basis ]：定义弹性盒子元素的默认基准值。</li>
+		</ul>
+		
+		<h5>align-self (适用于弹性盒模型子元素)</h5>
+		<p>设置或检索弹性盒子元素自身在侧轴（纵轴）方向上的对齐方式。</p>
+		<p class="pre">align-self: auto | flex-start | flex-end | center | baseline | stretch</p>
+		<ul>
+			<li>auto：如果'align-self'的值为'auto'，则其计算值为元素的父元素的'align-items'值，如果其没有父元素，则计算值为'stretch'。</li>
+			<li>flex-start：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。</li>
+			<li>flex-end：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。</li>
+			<li>center：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。</li>
+			<li>baseline：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'flex-start'等效。其它情况下，该值将参与基线对齐。</li>
+			<li>stretch：如果指定侧轴大小的属性值为'auto'，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照'min/max-width/height'属性的限制。</li>
+		</ul>
+		<script src="js/flex-box.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
