@@ -17,14 +17,20 @@ html {
 }
 			
 .box span{
-	
+	width: 40px;
+	height: 40px;
 	display: block;
+	background-image: url(../img/kmd2.png);
+	background-repeat: no-repeat;
+}
+.box div{
 	position: absolute;
-	left: 0;
-	
+	left: 300px;
+	top: 100px;	
+	transform: scale(0);
 }
 .box span img{
-	width: 50%;
+	width: 100%;
 	display: block;
 }
 

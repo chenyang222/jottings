@@ -3,13 +3,9 @@
 (function(){
 	
 	
+	var imgData = ['opx','-40px','-84px'];
 	
 	var box = document.getElementsByClassName('box')[0];
-	
-	var span = box.getElementsByTagName('span')[0];
-	
-	var kmdArr = ['img/kmd_01.png','img/kmd_02.png','img/kmd_03.png','img/kmd_04.png'];
-
 	
 	var timer = setInterval(function(){
 		
@@ -17,38 +13,41 @@
 		
 	},1000)
 	
-		
 	function kmd(){
-		
-		var img = document.createElement('img');
 		
 		var picNum = RandomNumBoth(0,3);
 		
-		img.src = kmdArr[picNum];
-		
-		img.className = 'rotateZ';
-		
 		var span = document.createElement('span');
 		
-		var kTop = RandomNumBoth(20,50)
+		span.style.backgroundPositionX = imgData[picNum];
 		
-		span.style.top = kTop+'%';
+		span.className = 'rotateZ';
 		
-		span.appendChild(img);
+		var div = document.createElement('div');
 		
-		img.onload = function(){
-			MTween({		
-				el:span,
-				target:{scale:0,translateX:600},
-				time: 5000,
-				type: "linear",
-				callBack:function(){
-					box.removeChild(span)
-				}
-			})		
+		div.appendChild(span);	
 			
-			box.appendChild(span);			
-		}
+		box.appendChild(div);		
+		
+		css(div,"scale",0);
+	
+		MTween({		
+			el:div,
+			target:{scale:100,translateX:-200,translateY:-50},
+			time: 4000,
+			type: "linear",
+			callBack:function(){
+				MTween({		
+					el:div,
+					target:{translateX:-400,translateY:-100},
+					time: 2500,
+					type: "linear",
+					callBack:function(){
+						box.removeChild(div)
+					}
+				})	
+			}
+		})		
 		
 	}
 	
