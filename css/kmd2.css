@@ -1,0 +1,70 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+    background: #FFFFFF;
+    color: #49494d;
+    font-size: 14px;
+}
+body,
+html {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+			
+.box span{
+	width: 40px;
+	height: 40px;
+	display: block;
+	background-image: url(../img/kmd2.png);
+	background-repeat: no-repeat;
+}
+.box div{
+	position: absolute;
+	left: 300px;
+	top: 100px;	
+	transform: scale(0);
+}
+.box span img{
+	width: 100%;
+	display: block;
+}
+
+@keyframes rotateZ {
+	0%{
+		transform: rotateZ(0deg);
+	}
+	50% {
+		transform: rotateZ(10deg);
+	}
+	100% {
+		transform: rotateZ(0deg);
+	}				
+}
+@-webkit-keyframes rotateZ {
+	0%{
+		-webkit-transform: rotateZ(0deg);
+	}
+	50% {
+		-webkit-transform: rotateZ(10deg);
+	}
+	100% {
+		-webkit-transform: rotateZ(0deg);
+	}					
+}
+
+.rotateZ {
+		-webkit-animation-name: rotateZ;
+		animation-name: rotateZ;
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-duration: 2s;
+		animation-duration: 2s;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+}		
+			

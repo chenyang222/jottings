@@ -1,0 +1,86 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+    background: #FFFFFF;
+    color: #49494d;
+    font-size: 14px;
+}
+body,
+html {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+
+.fire1,.fire2,.fire3{
+	transform: scale(0);
+	position: absolute;
+}
+.fire1 div,.fire2 div,.fire3 div{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	right: 0;	
+}
+.fire1 div span,.fire2 div span,.fire3 div span{
+	position: absolute;
+	top: 50%;
+	left: 50%;		
+}
+.fire1 div span span,.fire2 div span span,.fire3 div span span {
+	display: block;
+	background-image: url(../img/yh.png);
+	background-repeat: no-repeat;
+}
+.fire1 div span .yh1{
+	width: 15px;
+	height: 19px;	
+	background-position: 0px 0px;	
+}
+.fire1 div span .yh2{
+	width: 14px;
+	height: 16px;	
+	background-position: -18px 0px;	
+}
+.fire1 div span .yh3{
+	width: 11px;
+	height: 14px;	
+	background-position: -33px 0px;	
+}
+
+.fire2 div span .yh1{
+	width: 15px;
+	height: 25px;	
+	background-position: -51px 0px;	
+}
+.fire2 div span .yh2{
+	width: 13px;
+	height: 22px;	
+	background-position: -68px 0px;	
+}
+.fire2 div span .yh3{
+	width: 33px;
+	height: 21px;	
+	background-position: -83px 0px;	
+}
+
+.fire3 div span .yh1{
+	width: 5px;
+	height: 23px;	
+	background-position: -103px 0px;	
+}
+.fire3 div span .yh2{
+	width: 4px;
+	height: 22px;	
+	background-position: -111px 0px;	
+}
+.fire3 div span .yh3{
+	width: 4px;
+	height: 23px;	
+	background-position: -118px 0px;	
+}
