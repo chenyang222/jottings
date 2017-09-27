@@ -409,13 +409,13 @@
 				planeTimer = setInterval(function(){
 					
 					if(planeNum >= 0){
-						planeBoxTopNum -= 0.25;
-						planeBoxLeftNum += 0.5;
+						planeBoxTopNum -= 0.6;
+						planeBoxLeftNum += 1;
 						planeBox.style.top = planeBoxTopNum+'%';
 						planeBox.style.left = planeBoxLeftNum+'%';
 						
-						if( plane_02BoxWidth < 35){
-							plane_02BoxWidth += 0.5;
+						if( plane_02BoxWidth < 45){
+							plane_02BoxWidth += 1;
 							plane_02Box.style.width = plane_02BoxWidth+'%';
 							if(plane_02BoxWidth >= 25){
 								MTween({		
@@ -429,15 +429,15 @@
 						}
 						
 					}else{
-						planeNum += 1;
+						planeNum += 2;
 						plane.style.left = planeNum+'%';
 					}
 					if(planeDeg >= 5){
-						planeDeg -= 0.4;
+						planeDeg -= 0.8;
 						plane.style.transform = 'rotateZ('+ planeDeg +'deg)';					
 					}
 					
-					if(planeBoxLeftNum >= 250){
+					if(planeBoxLeftNum >= 150){
 						clearInterval(planeTimer);
 						planeAnimate();
 					}
