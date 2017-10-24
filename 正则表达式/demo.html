@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>正则表达式判断输入</h1>
+
+    账号:<input class="username" type="text" placeholder="">
+    <p class="unprompt"></p>
+
+</body>
+<script>
+
+window.inputCheck = {
+        
+    //账号监测
+    username:function(obj,output){
+
+        obj.onkeydown = function(){
+
+
+
+            output.innerText = '111';
+        }
+
+    }
+
+}
+
+
+    var username = document.getElementsByClassName('username')[0];
+    var unprompt = document.getElementsByClassName('unprompt')[0];
+
+    window.inputCheck.username(username,unprompt);
+
+    // function inputCheck 
+
+/* 
+    正则表达式基本语法
+
+    1.^ $ 分别代表一个字符串的开始和结束
+    例：
+        '^Ranchy' 表示所有以Ranchy开头的字符串
+        'Ranchy&' 表示所有以Ranchy为结尾的字符串
+        '^Ranchy&' 只能是Ranchy
+        'Ranchy' 表示任何包含Ranchy的字符串   
+    2.* + ? 代表一个或一序列字符重复出现的次数 分别是没有或更多 一次或更多 没有或一次
+    例：
+        'ab*' 表示一个字符串有一个a后面跟着零个或若干个b
+        'ab+' 表示一个字符串有一个a后面跟着至少一个b或者更多
+        'ab?' 表示一个字符串有一个a后面跟着零个或者一个b
+        'a?b+&' 表示在字符串的末尾有零个或一个a跟着一个或几个b
+        也可以直接使用{} 表示重复的次数或范围
+        'ab{2}' 表示一个字符串有一个a跟着2个b  'abb'
+        'ab{2,}' 表示一个字符串有一个a跟着至少2个b
+        'ab{3,5}' 表示一个字符串有一个a跟着3到5个b   
+
+*/
+
+
+</script>
+</html>
