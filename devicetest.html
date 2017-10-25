@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deviceTest</title>
+</head>
+<body>
+    
+<script>
+    var APPCommon = {
+        openApp: function () {
+            var this_ = this;
+            //微信
+            if (this_.isWeixin()) {
+                window.event ? window.event.returnValue = false : e.preventDefault();
+                alert('是微信')
+            } else {//非微信浏览器
+                if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                    alert('是ios')
+                }else{
+                    alert('是andriod')
+                }
+            }
+        },
+        isWeixin: function () { //判断是否是微信
+            var ua = navigator.userAgent.toLowerCase();
+            console.info(ua);
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    window.onload = function(){
+        APPCommon.openApp();
+    }
+</script>
+
+
+</body>
+</html>
