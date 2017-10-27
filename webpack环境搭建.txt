@@ -9,4 +9,12 @@
 6.webpack.config.js配置，告诉webpack需要做什么。
 
 webpack loader加载器
-npm install babel-loader babel babel-core css-loader style-loader  url-loader file-loader less-loader less  --save-dev
+
+$ npm install xxx-loader --save-dev
+加载器包括：style-loader、css-loader、less-loader、sass-loader、jsx-loader、url-loader、babel-loader、file-loader等等；各个加载器都有自己的功能，你可以根据项目需要来安装相应的加载器；
+style-loader css-loader jsx-loader url-loader babel-loader file-loader
+
+
+//插件
+cnpm install html-webpack-plugin --save-dev
+html-webpack-plugin插件动态生成 html页面
