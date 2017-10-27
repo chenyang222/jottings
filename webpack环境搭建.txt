@@ -1,0 +1,12 @@
+
+
+1.node
+2.git
+///////////使用淘宝镜像源cnpm
+3.--save-dev 是你开发时候依赖的东西，--save 是你发布之后还依赖的东西 jquery  ng vue react  ...
+4.cnpm init
+5.cnpm install webpack --save-dev  //可以使用不同版本 cnpm install webpack@版本号 --save-dev
+6.webpack.config.js配置，告诉webpack需要做什么。
+
+webpack loader加载器
+npm install babel-loader babel babel-core css-loader style-loader  url-loader file-loader less-loader less  --save-dev
