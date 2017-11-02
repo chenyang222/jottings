@@ -39,3 +39,6 @@ var Cookie = function (name, value, options) {
 		return CookieValue;
 	}
 };
+
+
+//Â·¾¶path
