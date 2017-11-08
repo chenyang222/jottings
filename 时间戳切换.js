@@ -14,36 +14,14 @@ function formatDateTime(inputTime) {
     second = second < 10 ? ('0' + second) : second;   
     return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;    
 };  
-//日期转时间戳
-function format(time, format) {
-    var t = new Date(time);
-    var tf = function(i) {
-        return(i < 10 ? '0' : '') + i
-    };
-    if(time == null) {
-        return '';
-    } else {
-        return format.replace(/yyyy|MM|dd|HH|mm|ss/g, function(a) {
-            switch(a) {
-                case 'yyyy':
-                    return tf(t.getFullYear());
-                    break;
-                case 'MM':
-                    return tf(t.getMonth() + 1);
-                    break;
-                case 'mm':
-                    return tf(t.getMinutes());
-                    break;
-                case 'dd':
-                    return tf(t.getDate());
-                    break;
-                case 'HH':
-                    return tf(t.getHours());
-                    break;
-                case 'ss':
-                    return tf(t.getSeconds());
-                    break;
-            }
-        })
-    }
+//时间转变为时间戳
+function transdate(endTime) {
+    var date = new Date();
+    date.setFullYear(endTime.substring(0, 4));
+    date.setMonth(endTime.substring(5, 7) - 1);
+    date.setDate(endTime.substring(8, 10));
+    date.setHours(endTime.substring(11, 13));
+    date.setMinutes(endTime.substring(14, 16));
+    date.setSeconds(endTime.substring(17, 19));
+    return Date.parse(date) / 1000;
 }
